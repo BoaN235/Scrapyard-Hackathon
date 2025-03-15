@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://du6abaix38n46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uypdf"]
+bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_uypdf"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_tnsjp"]
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnsjp"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Fight" type="Node2D"]
+
+[node name="Op" type="Node2D" parent="."]
+
+[node name="Op" type="Control" parent="Op"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Player" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 100.0
+offset_bottom = 104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uypdf")
+
+[node name="Op" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 261.0
+offset_bottom = 55.0
+text = "OP"
+label_settings = SubResource("LabelSettings_uypdf")
+
+[node name="HP" type="Label" parent="Panel/Op"]
+offset_left = 3.0
+offset_top = 55.0
+offset_right = 258.0
+offset_bottom = 110.0
+text = "HP:"
+label_settings = SubResource("LabelSettings_tnsjp")
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 1023.0
+offset_top = 403.0
+offset_right = 1123.0
+offset_bottom = 507.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tnsjp")
+
+[node name="Player" type="Label" parent="Panel2"]
+offset_left = 6.0
+offset_top = -1.0
+offset_right = 261.0
+offset_bottom = 54.0
+text = "You"
+label_settings = SubResource("LabelSettings_uypdf")
+
+[node name="HP" type="Label" parent="Panel2/Player"]
+offset_left = 6.0
+offset_top = 60.0
+offset_right = 261.0
+offset_bottom = 115.0
+text = "HP:"
+label_settings = SubResource("LabelSettings_tnsjp")
