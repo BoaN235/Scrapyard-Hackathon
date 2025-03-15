@@ -1,5 +1,5 @@
 // Base Card class
-class Card {
+export class Card {
     constructor(name, cost) {
         this.name = name;
         this.cost = cost;
@@ -11,7 +11,7 @@ class Card {
 }
 
 // Derived class for a specific type of card
-class AttackCard extends Card {
+export class AttackCard extends Card {
     constructor(name, cost, damage) {
         super(name, cost);
         this.damage = damage;
@@ -24,7 +24,7 @@ class AttackCard extends Card {
 }
 
 // Derived class for another type of card
-class HealCard extends Card {
+export class HealCard extends Card {
     constructor(name, cost, healing) {
         super(name, cost);
         this.healing = healing;
@@ -36,4 +36,3 @@ class HealCard extends Card {
     }
 }
 
-export { Card, AttackCard, HealCard };
