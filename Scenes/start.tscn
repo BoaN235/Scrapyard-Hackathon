@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://b821ilosk5ywq"]
+
+[ext_resource type="Script" uid="uid://cu6woxbad6e4c" path="res://Scripts/start.gd" id="1_3bxa3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r48yj"]
+font_size = 60
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_3bxa3")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 396.0
+offset_top = 234.0
+offset_right = 780.0
+offset_bottom = 313.0
+text = "Start"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 88.0
+offset_right = 1378.0
+offset_bottom = 273.0
+text = "The House Always Wins"
+label_settings = SubResource("LabelSettings_r48yj")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 396.0
+offset_top = 326.0
+offset_right = 780.0
+offset_bottom = 405.0
+text = "Settings"
+
+[connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]
