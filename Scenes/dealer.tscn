@@ -1,3 +1,64 @@
-[gd_scene format=3 uid="uid://j7gqnf1xay0w"]
+[gd_scene load_steps=6 format=3 uid="uid://j7gqnf1xay0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gpik"]
+bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_r86xs"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_etcia"]
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmjkp"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb8cv"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Dealer" type="Node2D"]
+
+[node name="op" type="Panel" parent="."]
+offset_right = 100.0
+offset_bottom = 104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gpik")
+
+[node name="OpName" type="Label" parent="op"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 261.0
+offset_bottom = 55.0
+text = "OP"
+label_settings = SubResource("LabelSettings_r86xs")
+
+[node name="HP" type="Label" parent="op/OpName"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 55.0
+offset_right = 258.0
+offset_bottom = 110.0
+label_settings = SubResource("LabelSettings_etcia")
+
+[node name="OPHPBar" type="ProgressBar" parent="op"]
+z_index = -1
+layout_mode = 0
+offset_left = 95.0
+offset_top = -1.0
+offset_right = 310.0
+offset_bottom = 103.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xmjkp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xb8cv")
+value = 100.0
