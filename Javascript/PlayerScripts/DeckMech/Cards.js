@@ -36,6 +36,4 @@ class HealCard extends Card {
     }
 }
 
-
-const fireball = new AttackCard('Fireball', 5, 20);
-const healingPotion = new HealCard('Healing Potion', 3, 15);
+export { Card, AttackCard, HealCard };
