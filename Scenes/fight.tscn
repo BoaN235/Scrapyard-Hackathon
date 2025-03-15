@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://du6abaix38n46"]
+[gd_scene load_steps=11 format=3 uid="uid://du6abaix38n46"]
+
+[ext_resource type="Script" uid="uid://3bwrmhn6cxhg" path="res://Scripts/fight.gd" id="1_bq00v"]
+[ext_resource type="PackedScene" uid="uid://caioaeiq1v7qq" path="res://Cards/Scenes/P2.tscn" id="1_tnsjp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uypdf"]
 bg_color = Color(0.0605303, 0.0605304, 0.0605303, 1)
@@ -13,6 +16,22 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_tnsjp"]
 font_size = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8cav"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvs45"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnsjp"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
@@ -20,7 +39,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2wba"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbr77"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
 [node name="Fight" type="Node2D"]
+script = ExtResource("1_bq00v")
 
 [node name="Op" type="Node2D" parent="."]
 
@@ -44,12 +77,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="op" type="Panel" parent="."]
 offset_right = 100.0
 offset_bottom = 104.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uypdf")
 
-[node name="Op" type="Label" parent="Panel"]
+[node name="OpName" type="Label" parent="op"]
 layout_mode = 0
 offset_left = 6.0
 offset_right = 261.0
@@ -57,22 +90,34 @@ offset_bottom = 55.0
 text = "OP"
 label_settings = SubResource("LabelSettings_uypdf")
 
-[node name="HP" type="Label" parent="Panel/Op"]
+[node name="HP" type="Label" parent="op/OpName"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 55.0
 offset_right = 258.0
 offset_bottom = 110.0
-text = "HP:"
 label_settings = SubResource("LabelSettings_tnsjp")
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="OPHPBar" type="ProgressBar" parent="op"]
+z_index = -1
+layout_mode = 0
+offset_left = 95.0
+offset_top = -1.0
+offset_right = 310.0
+offset_bottom = 103.0
+theme_override_styles/background = SubResource("StyleBoxFlat_l8cav")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vvs45")
+value = 100.0
+
+[node name="player" type="Panel" parent="."]
 offset_left = 1023.0
 offset_top = 403.0
 offset_right = 1123.0
 offset_bottom = 507.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_tnsjp")
 
-[node name="Player" type="Label" parent="Panel2"]
+[node name="PlayerName" type="Label" parent="player"]
+layout_mode = 0
 offset_left = 6.0
 offset_top = -1.0
 offset_right = 261.0
@@ -80,10 +125,23 @@ offset_bottom = 54.0
 text = "You"
 label_settings = SubResource("LabelSettings_uypdf")
 
-[node name="HP" type="Label" parent="Panel2/Player"]
+[node name="HP" type="Label" parent="player/PlayerName"]
+layout_mode = 0
 offset_left = 6.0
 offset_top = 60.0
 offset_right = 261.0
 offset_bottom = 115.0
-text = "HP:"
 label_settings = SubResource("LabelSettings_tnsjp")
+
+[node name="PlayerHPBar" type="ProgressBar" parent="player"]
+z_index = -1
+offset_left = -206.0
+offset_right = 9.0
+offset_bottom = 104.0
+theme_override_styles/background = SubResource("StyleBoxFlat_f2wba")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kbr77")
+value = 100.0
+fill_mode = 1
+
+[node name="P2" parent="." instance=ExtResource("1_tnsjp")]
+position = Vector2(-105, 206)

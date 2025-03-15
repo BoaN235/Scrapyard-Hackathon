@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://caioaeiq1v7qq"]
+
+[ext_resource type="Script" uid="uid://dounhl0d7imvf" path="res://Cards/Scripts/p_2.gd" id="1_ijval"]
+[ext_resource type="Texture2D" uid="uid://b7jaeqsac62rd" path="res://Cards/Images/Norm 2 Spades.png" id="1_u5dx0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ujo5"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.261146, 0.650657, 5.77569e-07, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="P2" type="Node2D"]
+script = ExtResource("1_ijval")
+
+[node name="Norm2Spades" type="Sprite2D" parent="."]
+position = Vector2(462, 330)
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("1_u5dx0")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 379.0
+offset_top = 225.0
+offset_right = 502.0
+offset_bottom = 406.0
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = 377.0
+offset_top = 222.0
+offset_right = 501.0
+offset_bottom = 406.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ujo5")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

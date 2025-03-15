@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dmag57m4lnpxj"]
+
+[node name="Player" type="Node2D"]
+
+[node name="Cards" type="Node2D" parent="."]
+
+[node name="DrawPile" type="Node2D" parent="Cards"]
+
+[node name="Discard" type="Node2D" parent="Cards"]
+
+[node name="Hand" type="HBoxContainer" parent="Cards"]
+offset_right = 1411.0
+offset_bottom = 704.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.45
