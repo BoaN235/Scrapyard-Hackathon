@@ -20,49 +20,5 @@ offset_top = 80.0
 offset_right = 602.0
 offset_bottom = 120.0
 
-[node name="Button" type="Button" parent="Maps"]
-offset_top = 432.0
-offset_right = 71.0
-offset_bottom = 489.0
-
-[node name="Button2" type="Button" parent="Maps"]
-offset_left = -120.0
-offset_top = 312.0
-offset_right = -49.0
-offset_bottom = 369.0
-
-[node name="Button3" type="Button" parent="Maps"]
-offset_left = 3.0
-offset_top = 308.0
-offset_right = 74.0
-offset_bottom = 365.0
-
-[node name="Button5" type="Button" parent="Maps"]
-offset_left = 99.0
-offset_top = 175.0
-offset_right = 170.0
-offset_bottom = 232.0
-
-[node name="Button4" type="Button" parent="Maps"]
-offset_left = 131.0
-offset_top = 311.0
-offset_right = 202.0
-offset_bottom = 368.0
-
-[node name="Button6" type="Button" parent="Maps"]
-offset_left = 259.0
-offset_top = 196.0
-offset_right = 330.0
-offset_bottom = 253.0
-
-[node name="Button8" type="Button" parent="Maps"]
-offset_left = -251.0
-offset_top = 185.0
-offset_right = -180.0
-offset_bottom = 242.0
-
-[node name="Button9" type="Button" parent="Maps"]
-offset_left = -93.0
-offset_top = 183.0
-offset_right = -22.0
-offset_bottom = 240.0
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(912, -4)

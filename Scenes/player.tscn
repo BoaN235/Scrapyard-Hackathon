@@ -38,13 +38,68 @@ script = ExtResource("1_cvnsp")
 
 [node name="Discard" type="Node2D" parent="Cards"]
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-offset_right = 884.0
-offset_bottom = 556.0
+[node name="Hand" type="Control" parent="Cards"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -194.0
+offset_top = -22.0
+offset_right = -194.0
+offset_bottom = -22.0
 
-[node name="P2" parent="BoxContainer" instance=ExtResource("1_v0iea")]
+[node name="Card_1" type="Control" parent="Cards/Hand"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 27.0
+offset_top = -22.0
+offset_right = 27.0
+offset_bottom = 680.0
 
-[node name="P3" parent="BoxContainer" instance=ExtResource("1_v0iea")]
+[node name="P2" parent="Cards/Hand/Card_1" instance=ExtResource("1_v0iea")]
+position = Vector2(-128, 244)
+
+[node name="Card_2" type="Control" parent="Cards/Hand"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = -28.0
+offset_top = -32.0
+offset_right = -28.0
+offset_bottom = 670.0
+
+[node name="P2" parent="Cards/Hand/Card_2" instance=ExtResource("1_v0iea")]
+position = Vector2(60, 229)
+
+[node name="Card_3" type="Control" parent="Cards/Hand"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 98.0
+offset_top = 12.0
+offset_right = 98.0
+offset_bottom = 714.0
+
+[node name="P2" parent="Cards/Hand/Card_3" instance=ExtResource("1_v0iea")]
+position = Vector2(60, 229)
+
+[node name="Card_4" type="Control" parent="Cards/Hand"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 236.0
+offset_top = 24.0
+offset_right = 236.0
+offset_bottom = 726.0
+
+[node name="P2" parent="Cards/Hand/Card_4" instance=ExtResource("1_v0iea")]
+position = Vector2(60, 229)
+
+[node name="Card_5" type="Control" parent="Cards/Hand"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 391.0
+offset_top = -1.0
+offset_right = 391.0
+offset_bottom = 701.0
+
+[node name="P2" parent="Cards/Hand/Card_5" instance=ExtResource("1_v0iea")]
+position = Vector2(60, 229)
 
 [node name="player" type="Panel" parent="."]
 offset_left = 1023.0
