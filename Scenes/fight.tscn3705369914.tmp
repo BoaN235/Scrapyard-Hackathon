@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://du6abaix38n46"]
+[gd_scene load_steps=6 format=3 uid="uid://du6abaix38n46"]
 
 [ext_resource type="Script" uid="uid://3bwrmhn6cxhg" path="res://Scripts/fight.gd" id="1_bq00v"]
 [ext_resource type="PackedScene" uid="uid://dmag57m4lnpxj" path="res://Scenes/player.tscn" id="2_l8cav"]
+[ext_resource type="PackedScene" uid="uid://j7gqnf1xay0w" path="res://Scenes/dealer.tscn" id="3_vvs45"]
 [ext_resource type="PackedScene" uid="uid://sjqm5g7ludvx" path="res://Scenes/player_ui.tscn" id="4_vvs45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvs45"]
@@ -12,6 +13,9 @@ script = ExtResource("1_bq00v")
 
 [node name="Player" parent="." instance=ExtResource("2_l8cav")]
 position = Vector2(4, -2)
+
+[node name="Dealer" parent="." instance=ExtResource("3_vvs45")]
+position = Vector2(1059, -6)
 
 [node name="PlayerUI" parent="." instance=ExtResource("4_vvs45")]
 offset_left = -14.0

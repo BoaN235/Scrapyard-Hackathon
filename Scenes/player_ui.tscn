@@ -79,6 +79,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dxtgh")
 
 [node name="Health" type="Panel" parent="Control"]
 z_index = 1
+layout_mode = 0
 offset_left = -13.0
 offset_top = 7.0
 offset_right = 228.0
@@ -96,6 +97,7 @@ label_settings = SubResource("LabelSettings_ohrjl")
 
 [node name="Chips" type="Panel" parent="Control"]
 z_index = -2
+layout_mode = 0
 offset_left = 244.0
 offset_top = 7.0
 offset_right = 311.0
@@ -147,6 +149,7 @@ position = Vector2(45, 40)
 texture = ExtResource("1_ohrjl")
 
 [node name="Chips" type="Label" parent="Control/Chips"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 48.0
 offset_right = 73.0
@@ -155,6 +158,7 @@ text = "0"
 
 [node name="Relics" type="Panel" parent="Control"]
 z_index = 1
+layout_mode = 0
 offset_left = 331.0
 offset_top = 37.0
 offset_right = 1109.0
@@ -163,6 +167,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qipxh")
 
 [node name="Relics" type="Panel" parent="Control/Relics"]
 z_index = 1
+layout_mode = 0
 offset_left = 314.0
 offset_top = -6.0
 offset_right = 458.0
@@ -207,6 +212,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dxtgh")
 
 [node name="Health" type="Panel" parent="Control/Control"]
 z_index = 1
+layout_mode = 0
 offset_left = -13.0
 offset_top = 7.0
 offset_right = 228.0
@@ -224,6 +230,7 @@ label_settings = SubResource("LabelSettings_ohrjl")
 
 [node name="Chips" type="Panel" parent="Control/Control"]
 z_index = -2
+layout_mode = 0
 offset_left = 244.0
 offset_top = 7.0
 offset_right = 311.0
@@ -275,6 +282,7 @@ position = Vector2(45, 40)
 texture = ExtResource("1_ohrjl")
 
 [node name="Chips" type="Label" parent="Control/Control/Chips"]
+layout_mode = 0
 offset_left = 26.0
 offset_top = 48.0
 offset_right = 73.0
@@ -283,6 +291,7 @@ text = "0"
 
 [node name="Relics" type="Panel" parent="Control/Control"]
 z_index = 1
+layout_mode = 0
 offset_left = 331.0
 offset_top = 10.0
 offset_right = 1109.0
