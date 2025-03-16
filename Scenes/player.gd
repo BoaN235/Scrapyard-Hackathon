@@ -6,11 +6,13 @@ var Nvp = Stats.stats["Nvp"]
 var card_images = Stats.card_images
 var card_values = Stats.card_values
 var hand = []
+var draw_pile = []
+var discard_pile = []
 var attacking = false
 var lastcard 
 @onready var damgetag = $Cards/Damage
-
-
+@onready var librarytext = $"../PlayerUI/Library/Label"
+@onready var discardtext = $"../PlayerUI/Discard/Label"
 
 class Card:
 	var sprite
@@ -20,8 +22,8 @@ class Card:
 	var original_pos = Vector2()
 	var offset = Vector2()
 	var main_node
-	var inuse
-	var moving
+	var inuse = false
+	var moving = false
 	var number
 
 	func _init(main_node, img):
@@ -57,54 +59,74 @@ class Card:
 	func play():
 		pass
 
-
-
 	func update_position():
 		if panel.visible:
 			var mouse_pos = node.get_viewport().get_mouse_position()
 			if mouse_pos:
-				sprite.position = mouse_pos 
+				sprite.position = mouse_pos
+				button.position = mouse_pos
 
 func _ready() -> void:
+	# Initialize the draw pile with the deck from Stats
+	draw_pile = Stats.stats["deck"].duplicate()
+	shuffle_draw_pile()
 	for i in range(5):
 		draw_card()
 
+func shuffle_draw_pile():
+	draw_pile.shuffle()
+
 func draw_card():
+	if draw_pile.size() == 0:
+		# Shuffle discard pile back into draw pile
+		print("e")
+		draw_pile = discard_pile.duplicate()
+		discard_pile.clear()
+		shuffle_draw_pile()
 	if hand.size() >= 6:
-		discard_card(hand[5])  # Discard the first card if the hand size exceeds 6
-	var random_index = randi() % card_images.size()
-	var img = card_images[random_index]
-	var card = Card.new(self, img)
-	card.sprite.position = Vector2(hand.size() * 125 + 350, 460)  # Adjust position based on hand size
-	card.button.position = Vector2(hand.size() * 125 + 250, 380)  # Adjust position based on hand size
-	card.sprite.scale = card.sprite.texture.get_size() / 26
-	card.button.scale = card.sprite.texture.get_size() / 5
-	card.button.connect("button_down", Callable(card, "_on_button_down"))
-	card.button.connect("button_up", Callable(card, "_on_button_up"))
-	card.button.keep_pressed_outside = true
-	card.button.modulate = Color(1, 1, 1, 0)  # Make the button invisible
-	card.node.add_child(card.sprite)
-	card.node.add_child(card.button)
-	card.node.add_child(card.panel)
-	add_child(card.node)  # Add the card node to the scene tree
-	hand.append(card)
-
-
-
+		discard_card(hand[0])  # Discard the first card if the hand size exceeds 
+	if draw_pile.size() > 0:
+		var img_index = draw_pile.pop_back()
+		var img = card_images[img_index]  # Get the image path using the index
+		var card = Card.new(self, img)
+		var empty_slot = -1
+		for i in range(6):
+			if i >= hand.size() or hand[i] == null:
+				empty_slot = i
+				break
+		if empty_slot != -1:
+			card.sprite.position = Vector2(empty_slot * 125 + 350, 460)  # Adjust position based on slot
+			card.button.position = Vector2(empty_slot * 125 + 250, 380)  # Adjust position based on slot
+			card.sprite.scale = card.sprite.texture.get_size() / 26
+			card.button.scale = card.sprite.texture.get_size() / 5
+			card.button.connect("button_down", Callable(card, "_on_button_down"))
+			card.button.connect("button_up", Callable(card, "_on_button_up"))
+			card.button.keep_pressed_outside = true
+			card.button.modulate = Color(1, 1, 1, 0)  # Make the button invisible
+			card.node.add_child(card.sprite)
+			card.node.add_child(card.button)
+			card.node.add_child(card.panel)
+			self.add_child(card.node)  # Add the card node to the scene tree
+			if empty_slot < hand.size():
+				hand[empty_slot] = card
+			else:
+				hand.append(card)
 func discard_card(card):
 	if card in hand:
 		hand.erase(card)
-		remove_child(card.node)
+		self.remove_child(card.node)
 		card.node.queue_free()
+		discard_pile.append(card.number)  # Add the card to the discard pile
 
 func update_hand_positions():
 	for i in range(hand.size()):
-		hand[i].sprite.position = Vector2(i * 100, 0)  # Adjust position based on new hand size
+		if hand[i] != null:
+			hand[i].sprite.position = Vector2(i * 100, 0)  # Adjust position based on slot
 
 func start():
 	# Initialize or reset the hand
 	for card in hand:
-		remove_child(card.node)
+		self.remove_child(card.node)
 		card.node.queue_free()
 	hand.clear()
 	for i in range(5):
@@ -117,6 +139,8 @@ func _process(delta: float) -> void:
 			if attacking: 
 				if card.moving:
 					pass
+	discardtext.text = str(len(discard_pile))
+	librarytext.text = str(len(draw_pile))
 
 func _on_panel_2_mouse_entered() -> void:
 	attacking = true
@@ -137,7 +161,6 @@ func get_random_card() -> Card:
 		var random_index = randi() % hand.size()
 		return hand[random_index]
 	return null
-
 
 func _on_end_turn_button_pressed() -> void:
 	end_turn()

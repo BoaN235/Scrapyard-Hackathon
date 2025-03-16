@@ -38,10 +38,10 @@ offset_bottom = 308.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_v0iea")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 979.0
-offset_top = 373.0
-offset_right = 1116.0
-offset_bottom = 447.0
+offset_left = 1002.0
+offset_top = 467.0
+offset_right = 1139.0
+offset_bottom = 541.0
 theme = ExtResource("2_r4e7c")
 text = "End Turn"
 

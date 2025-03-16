@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://nlk0cwes4fw2"]
+
+[ext_resource type="Texture2D" uid="uid://ds3v1t6808eyn" path="res://Assets/framepos1.png" id="1_7s1c0"]
+[ext_resource type="Texture2D" uid="uid://dvakn5jtddh74" path="res://Assets/framepos2.png" id="2_a1rkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o48dc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7kr3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y05xp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbxpi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vyjec"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt7sy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7s1c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a1rkg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Button" type="Button"]
+offset_right = 231.0
+offset_bottom = 82.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o48dc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7kr3q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y05xp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sbxpi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vyjec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(101, 112)
+sprite_frames = SubResource("SpriteFrames_rt7sy")
+autoplay = "default"

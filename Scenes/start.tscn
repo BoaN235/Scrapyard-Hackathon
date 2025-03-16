@@ -1,31 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://b821ilosk5ywq"]
+[gd_scene load_steps=14 format=3 uid="uid://b821ilosk5ywq"]
 
 [ext_resource type="Script" path="res://Scripts/start.gd" id="1_3bxa3"]
 [ext_resource type="Texture2D" uid="uid://buajwjg8x7rw8" path="res://Assets/Title.png" id="2_fmb5s"]
-[ext_resource type="Theme" uid="uid://75wybxm0x0en" path="res://Scenes/MainTheme.tres" id="2_vjeat"]
+[ext_resource type="Texture2D" uid="uid://ds3v1t6808eyn" path="res://Assets/framepos1.png" id="3_1soxu"]
+[ext_resource type="Texture2D" uid="uid://dvakn5jtddh74" path="res://Assets/framepos2.png" id="4_vde7x"]
 [ext_resource type="Texture2D" uid="uid://dufdw16lx1hu1" path="res://Assets/start ava.png" id="5_1n5gw"]
 [ext_resource type="Texture2D" uid="uid://bte76uyntjftl" path="res://Assets/You Lose.png" id="6_4bqmm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfw5h"]
 bg_color = Color(0, 0.273376, 4.81308e-08, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o48dc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7kr3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y05xp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbxpi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vyjec"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt7sy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1soxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vde7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Start" type="Node2D"]
 script = ExtResource("1_3bxa3")
-
-[node name="Button" type="Button" parent="."]
-offset_left = 346.0
-offset_top = 246.0
-offset_right = 853.0
-offset_bottom = 434.0
-theme = ExtResource("2_vjeat")
-
-[node name="Button2" type="Button" parent="."]
-z_index = -1
-offset_left = 425.0
-offset_top = 442.0
-offset_right = 759.0
-offset_bottom = 578.0
-theme = ExtResource("2_vjeat")
 
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(565, 159)
@@ -41,14 +51,54 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qfw5h")
 
 [node name="StartAva" type="Sprite2D" parent="."]
+z_index = 4
 position = Vector2(594, 352)
 scale = Vector2(1.07262, 1.13264)
 texture = ExtResource("5_1n5gw")
 
 [node name="YouLose" type="Sprite2D" parent="."]
-position = Vector2(581, 541)
+z_index = 7
+position = Vector2(581, 539)
 scale = Vector2(0.49875, 0.49875)
 texture = ExtResource("6_4bqmm")
 
-[connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[node name="Button3" type="Button" parent="."]
+z_index = 3
+offset_left = 378.0
+offset_top = 308.0
+offset_right = 831.0
+offset_bottom = 415.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o48dc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7kr3q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y05xp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sbxpi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vyjec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button3"]
+z_index = -1
+position = Vector2(200, 140)
+scale = Vector2(1.935, 1.25)
+sprite_frames = SubResource("SpriteFrames_rt7sy")
+autoplay = "default"
+
+[node name="Button3" type="Button" parent="Button3"]
+z_index = 3
+offset_left = 6.0
+offset_top = 169.0
+offset_right = 459.0
+offset_bottom = 276.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o48dc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7kr3q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y05xp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sbxpi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vyjec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button3/Button3"]
+z_index = -1
+position = Vector2(200, 140)
+scale = Vector2(1.935, 1.25)
+sprite_frames = SubResource("SpriteFrames_rt7sy")
+autoplay = "default"
+
+[connection signal="pressed" from="Button3" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3/Button3" to="." method="_on_button_3_pressed"]
