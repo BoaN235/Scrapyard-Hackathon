@@ -8,19 +8,39 @@ var hand = []
 class Card:
 	var sprite
 	var button
+	var node
+	var panel
+	var original_pos = Vector2()
+	var offset = Vector2()
 
 	func _init():
 		sprite = Sprite2D.new()
 		button = Button.new()
+		node = Node2D.new()
+		panel = Panel.new()
 		var img = "res://Cards/Images/Norm 2 Spades.png"
 		var texture = load(img)
 		sprite.texture = texture
+		panel.visible = false
 
 	func _on_button_down():
-		print("Button down")
+		panel.visible = true
+		sprite.z_index = 1
+		panel.z_index = 1
+		original_pos = node.position
+		offset = node.position - node.get_viewport().get_mouse_position()
 
 	func _on_button_up():
-		print("Button up")
+		panel.visible = false
+		sprite.z_index = -1
+		panel.z_index = -1
+		node.position = original_pos
+
+	func update_position():
+		if panel.visible:
+			var mouse_pos = node.get_viewport().get_mouse_position()
+			if mouse_pos:
+				node.position = mouse_pos + offset
 
 func _ready() -> void:
 	for i in range(5):
@@ -28,21 +48,24 @@ func _ready() -> void:
 
 func draw_card():
 	var card = Card.new()
-	card.sprite.position = Vector2(hand.size() * 125 + 100, 500)  # Adjust position based on hand size
-	card.button.position = Vector2(hand.size() * 125 + 100, 500)  # Adjust position based on hand size
+	card.sprite.position = Vector2(hand.size() * 125 + 100, 520)  # Adjust position based on hand size
+	card.button.position = Vector2(hand.size() * 125, 450)  # Adjust position based on hand size
 	card.sprite.scale = card.sprite.texture.get_size() / 26
-	card.button.scale = card.sprite.texture.get_size() / 2
+	card.button.scale = card.sprite.texture.get_size() / 5
 	card.button.connect("button_down", Callable(card, "_on_button_down"))
 	card.button.connect("button_up", Callable(card, "_on_button_up"))
-	add_child(card.sprite)
-	add_child(card.button)
+	card.button.modulate = Color(1, 1, 1, 0)  # Make the button invisible
+	card.node.add_child(card.sprite)
+	card.node.add_child(card.button)
+	card.node.add_child(card.panel)
+	add_child(card.node)  # Add the card node to the scene tree
 	hand.append(card)
 
-func discard_card(card):
+func discard_cards(card):
 	if card in hand:
 		hand.erase(card)
-		remove_child(card.sprite)
-		card.sprite.queue_free()
+		remove_child(card.node)
+		card.node.queue_free()
 		update_hand_positions()
 
 func update_hand_positions():
@@ -52,14 +75,12 @@ func update_hand_positions():
 func start():
 	# Initialize or reset the hand
 	for card in hand:
-		remove_child(card.sprite)
-		card.sprite.queue_free()
+		remove_child(card.node)
+		card.node.queue_free()
 	hand.clear()
 	for i in range(5):
 		draw_card()
 
-func _on_button_up(button: Button):
-	print("e")
-
-func _on_button_down(button: Button):
-	print("b")
+func _process(delta: float) -> void:
+	for card in hand:
+		card.update_position()
