@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmag57m4lnpxj"]
+[gd_scene load_steps=5 format=3 uid="uid://dmag57m4lnpxj"]
 
 [ext_resource type="Script" uid="uid://dq6ya7d4kc3va" path="res://Scenes/player.gd" id="1_cvnsp"]
 
@@ -14,19 +14,6 @@ font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_6t5aa"]
 font_size = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgqql"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkybt"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_bottom_left = 10
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_cvnsp")
@@ -46,10 +33,10 @@ offset_right = -194.0
 offset_bottom = -22.0
 
 [node name="player" type="Panel" parent="."]
-offset_left = 1023.0
-offset_top = 403.0
-offset_right = 1123.0
-offset_bottom = 507.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 102.0
+offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_v0iea")
 
 [node name="PlayerName" type="Label" parent="player"]
@@ -68,14 +55,3 @@ offset_top = 60.0
 offset_right = 261.0
 offset_bottom = 115.0
 label_settings = SubResource("LabelSettings_6t5aa")
-
-[node name="PlayerHPBar" type="ProgressBar" parent="player"]
-z_index = -1
-layout_mode = 0
-offset_left = -206.0
-offset_right = 9.0
-offset_bottom = 104.0
-theme_override_styles/background = SubResource("StyleBoxFlat_vgqql")
-theme_override_styles/fill = SubResource("StyleBoxFlat_fkybt")
-value = 100.0
-fill_mode = 1
