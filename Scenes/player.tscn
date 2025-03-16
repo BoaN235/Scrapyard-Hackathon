@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmag57m4lnpxj"]
+[gd_scene load_steps=9 format=3 uid="uid://dmag57m4lnpxj"]
 
 [ext_resource type="Script" uid="uid://dq6ya7d4kc3va" path="res://Scenes/player.gd" id="1_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://caioaeiq1v7qq" path="res://Cards/Scenes/P2.tscn" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://c415v6yrt5t8x" path="res://Cards/Scenes/P3.tscn" id="3_6t5aa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0iea"]
 bg_color = Color(0, 0, 0, 1)
@@ -65,8 +66,8 @@ offset_top = -32.0
 offset_right = -28.0
 offset_bottom = 670.0
 
-[node name="P2" parent="Cards/Hand/Card_2" instance=ExtResource("1_v0iea")]
-position = Vector2(60, 229)
+[node name="P3" parent="Cards/Hand/Card_2" instance=ExtResource("3_6t5aa")]
+position = Vector2(40, 264)
 
 [node name="Card_3" type="Control" parent="Cards/Hand"]
 layout_mode = 3
