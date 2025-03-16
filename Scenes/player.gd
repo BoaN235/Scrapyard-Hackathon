@@ -31,7 +31,7 @@ func draw_card():
 	card.sprite.position = Vector2(hand.size() * 125 + 100, 500)  # Adjust position based on hand size
 	card.button.position = Vector2(hand.size() * 125 + 100, 500)  # Adjust position based on hand size
 	card.sprite.scale = card.sprite.texture.get_size() / 26
-	card.button.scale = card.sprite.texture.get_size() / 5
+	card.button.scale = card.sprite.texture.get_size() / 2
 	card.button.connect("button_down", Callable(card, "_on_button_down"))
 	card.button.connect("button_up", Callable(card, "_on_button_up"))
 	add_child(card.sprite)
