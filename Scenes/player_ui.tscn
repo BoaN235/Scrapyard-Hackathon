@@ -111,7 +111,7 @@ offset_right = 1189.0
 offset_bottom = 93.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dxtgh")
 
-[node name="HP" type="Label" parent="Control"]
+[node name="HPOP" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = -560.0
@@ -120,21 +120,20 @@ offset_bottom = -488.0
 text = "100/100"
 label_settings = SubResource("LabelSettings_ohrjl")
 
-[node name="Framepos2" type="Sprite2D" parent="Control/HP"]
+[node name="Framepos2" type="Sprite2D" parent="Control/HPOP"]
 visible = false
 z_index = -1
 position = Vector2(104, -32.0001)
 rotation = -3.13966
 texture = ExtResource("2_xdpy7")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Control/HP"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Control/HPOP"]
 z_index = -1
 position = Vector2(101, -34)
 rotation = -3.14094
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ibcaa")
 autoplay = "default"
-frame_progress = 0.0945703
+frame_progress = 0.0082983
 
 [node name="Health" type="Panel" parent="Control"]
 z_index = 1
@@ -385,9 +384,10 @@ z_index = -1
 position = Vector2(74, 103)
 sprite_frames = SubResource("SpriteFrames_ibcaa")
 autoplay = "default"
-frame_progress = 0.129588
+frame_progress = 0.0433166
 
 [node name="Library" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 368.0
 offset_right = 104.0

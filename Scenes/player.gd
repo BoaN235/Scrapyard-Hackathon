@@ -3,6 +3,8 @@ extends Node2D
 var HP = Stats.stats["HP"]
 var strength = Stats.stats["strength"]
 var Nvp = Stats.stats["Nvp"]
+var OPHP = Stats.dealer["HP"]
+var OPMHP = Stats.dealer["MHP"]
 var card_images = Stats.card_images
 var card_values = Stats.card_values
 var hand = []
@@ -13,6 +15,7 @@ var lastcard
 @onready var damgetag = $Cards/Damage
 @onready var librarytext = $"../PlayerUI/Library/Label"
 @onready var discardtext = $"../PlayerUI/Discard/Label"
+@onready var enemyhealth = $"../PlayerUI/Control/HPOP"
 
 class Card:
 	var sprite
@@ -58,6 +61,9 @@ class Card:
 			main_node.discard_card(self)
 
 	func play():
+		# Deal damage to the dealer
+		var damage = number
+		main_node.deal_damage_to_dealer(damage)
 		main_node.end_turn()
 
 	func update_position():
@@ -111,6 +117,7 @@ func draw_card():
 				hand[empty_slot] = card
 			else:
 				hand.append(card)
+
 func discard_card(card):
 	if card in hand:
 		hand.erase(card)
@@ -141,8 +148,10 @@ func _process(delta: float) -> void:
 			if attacking: 
 				if card.moving:
 					pass
-	discardtext.text = str(len(discard_pile))
-	librarytext.text = str(len(draw_pile))
+	if discardtext and librarytext and enemyhealth:
+		discardtext.text = str(len(discard_pile))
+		librarytext.text = str(len(draw_pile))
+		enemyhealth.text = str(Stats.dealer["HP"]) + "/" + str(Stats.dealer["MHP"])
 
 func _on_panel_2_mouse_entered() -> void:
 	attacking = true
@@ -166,3 +175,16 @@ func get_random_card() -> Card:
 
 func _on_end_turn_button_pressed() -> void:
 	end_turn()
+
+func deal_damage_to_dealer(damage):
+	Stats.dealer["HP"] = Stats.dealer["HP"] - damage
+	print(damage, " ", Stats.dealer["HP"])
+	if Stats.dealer["HP"] <= 0:
+		win()
+	if enemyhealth:
+		enemyhealth.text = str(Stats.dealer["HP"]) + "/" + str(Stats.dealer["MHP"])
+
+func win():
+	Stats.dealer["HP"] = Stats.dealer["MHP"]
+	Stats.stats["HP"] = Stats.stats["MHP"]
+	get_tree().change_scene_to_file("res://Scenes/run.tscn")
