@@ -13,7 +13,6 @@ config_version=5
 config/name="The house always wins"
 run/main_scene="uid://b821ilosk5ywq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 
