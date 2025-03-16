@@ -59,13 +59,14 @@ func _ready():
 	
 		# Create sprite for the room
 		var new_sprite = Sprite2D.new()
-		new_sprite.texture = preload("res://Assets/QuestionMark.png")
+		new_sprite.texture = preload("res://Assets/pokertable.png")
 		new_sprite.position = Vector2(xlocation, ylocation)
+		new_sprite.scale = Vector2(0.25,0.25)
 		add_child(new_sprite)
 	
 		# Create button for the room
 		var new_button = Button.new()
-		new_button.size = Vector2(25,25)
+		new_button.size = Vector2(30,30)
 		new_button.position = Vector2(xlocation, ylocation) + Vector2(200,200)
 		add_child(new_button)
 		new_button.connect("pressed", Callable(room, "on_button_pressed"))

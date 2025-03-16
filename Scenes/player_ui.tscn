@@ -173,7 +173,6 @@ offset_right = 1107.0
 offset_bottom = 50.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ohrjl")
 theme_override_styles/fill = SubResource("StyleBoxFlat_46yqn")
-value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Control"]

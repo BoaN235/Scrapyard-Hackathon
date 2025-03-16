@@ -4,6 +4,7 @@ var HP = Stats.stats["HP"]
 var strength = Stats.stats["strength"]
 var Nvp = Stats.stats["Nvp"]
 var hand = []
+var attacking = false
 
 class Card:
 	var sprite
@@ -48,8 +49,8 @@ func _ready() -> void:
 
 func draw_card():
 	var card = Card.new()
-	card.sprite.position = Vector2(hand.size() * 125 + 350, 520)  # Adjust position based on hand size
-	card.button.position = Vector2(hand.size() * 125 + 250, 450)  # Adjust position based on hand size
+	card.sprite.position = Vector2(hand.size() * 125 + 350, 460)  # Adjust position based on hand size
+	card.button.position = Vector2(hand.size() * 125 + 250, 380)  # Adjust position based on hand size
 	card.sprite.scale = card.sprite.texture.get_size() / 26
 	card.button.scale = card.sprite.texture.get_size() / 5
 	card.button.connect("button_down", Callable(card, "_on_button_down"))
@@ -84,3 +85,12 @@ func start():
 func _process(delta: float) -> void:
 	for card in hand:
 		card.update_position()
+
+
+
+func _on_panel_2_mouse_entered() -> void:
+	attacking = true
+
+
+func _on_panel_2_mouse_exited() -> void:
+	attacking = false
