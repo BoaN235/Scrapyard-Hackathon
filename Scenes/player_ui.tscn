@@ -134,7 +134,7 @@ rotation = -3.14094
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_ibcaa")
 autoplay = "default"
-frame_progress = 0.152524
+frame_progress = 0.0945703
 
 [node name="Health" type="Panel" parent="Control"]
 z_index = 1
@@ -385,7 +385,7 @@ z_index = -1
 position = Vector2(74, 103)
 sprite_frames = SubResource("SpriteFrames_ibcaa")
 autoplay = "default"
-frame_progress = 0.187541
+frame_progress = 0.129588
 
 [node name="Library" type="Panel" parent="."]
 offset_left = 24.0

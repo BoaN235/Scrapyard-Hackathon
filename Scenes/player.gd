@@ -26,6 +26,7 @@ class Card:
 	var moving = false
 	var number
 
+	@warning_ignore("shadowed_variable")
 	func _init(main_node, img):
 		self.main_node = main_node
 		sprite = Sprite2D.new()
@@ -57,7 +58,7 @@ class Card:
 			main_node.discard_card(self)
 
 	func play():
-		pass
+		main_node.end_turn()
 
 	func update_position():
 		if panel.visible:
@@ -69,6 +70,7 @@ class Card:
 func _ready() -> void:
 	# Initialize the draw pile with the deck from Stats
 	draw_pile = Stats.stats["deck"].duplicate()
+	print(draw_pile)
 	shuffle_draw_pile()
 	for i in range(5):
 		draw_card()
@@ -78,8 +80,6 @@ func shuffle_draw_pile():
 
 func draw_card():
 	if draw_pile.size() == 0:
-		# Shuffle discard pile back into draw pile
-		print("e")
 		draw_pile = discard_pile.duplicate()
 		discard_pile.clear()
 		shuffle_draw_pile()
@@ -117,6 +117,7 @@ func discard_card(card):
 		self.remove_child(card.node)
 		card.node.queue_free()
 		discard_pile.append(card.number)  # Add the card to the discard pile
+		print(card.number)
 
 func update_hand_positions():
 	for i in range(hand.size()):
@@ -132,6 +133,7 @@ func start():
 	for i in range(5):
 		draw_card()
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	for card in hand:
 		card.update_position()

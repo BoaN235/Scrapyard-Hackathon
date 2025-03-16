@@ -10,10 +10,10 @@ var card_images = [
 	"res://Cards/Images/8s.png",
 	"res://Cards/Images/9s.png",
 	"res://Cards/Images/10s.png",
-	"res://Cards/Images/js.png",
-	"res://Cards/Images/qs.png",
-	"res://Cards/Images/ks.png",
-	"res://Cards/Images/as.png",
+	"res://Cards/Images/njs.png",
+	"res://Cards/Images/nqs.png",
+	"res://Cards/Images/nks.png",
+	"res://Cards/Images/nas.png",
 	"res://Cards/Images/2h.png",
 	"res://Cards/Images/3h.png",
 	"res://Cards/Images/4h.png",
@@ -66,10 +66,10 @@ var card_values = {
 	"res://Cards/Images/8s.png": 8,
 	"res://Cards/Images/9s.png": 9,
 	"res://Cards/Images/10s.png": 10,
-	"res://Cards/Images/js.png": 11,
-	"res://Cards/Images/qs.png": 12,
-	"res://Cards/Images/ks.png": 13,
-	"res://Cards/Images/as.png": 14,
+	"res://Cards/Images/njs.png": 11,
+	"res://Cards/Images/nqs.png": 12,
+	"res://Cards/Images/nks.png": 13,
+	"res://Cards/Images/nas.png": 14,
 	"res://Cards/Images/2h.png": 2,
 	"res://Cards/Images/3h.png": 3,
 	"res://Cards/Images/4h.png": 4,
@@ -118,7 +118,7 @@ var stats = {
 	"Nvp": 10,
 	"Lvl": 1,
 	"EXP": 0,
-	"deck": [14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,]
+	"deck": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,]
 }
 
 var dealer = {
