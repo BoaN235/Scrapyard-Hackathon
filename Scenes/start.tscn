@@ -1,35 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://b821ilosk5ywq"]
+[gd_scene load_steps=7 format=3 uid="uid://b821ilosk5ywq"]
 
-[ext_resource type="Script" uid="uid://cu6woxbad6e4c" path="res://Scripts/start.gd" id="1_3bxa3"]
+[ext_resource type="Script" path="res://Scripts/start.gd" id="1_3bxa3"]
+[ext_resource type="Texture2D" uid="uid://buajwjg8x7rw8" path="res://Assets/Title.png" id="2_fmb5s"]
+[ext_resource type="Theme" uid="uid://75wybxm0x0en" path="res://Scenes/MainTheme.tres" id="2_vjeat"]
+[ext_resource type="Texture2D" uid="uid://dufdw16lx1hu1" path="res://Assets/start ava.png" id="5_1n5gw"]
+[ext_resource type="Texture2D" uid="uid://bte76uyntjftl" path="res://Assets/You Lose.png" id="6_4bqmm"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_r48yj"]
-font_size = 60
-outline_size = 15
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfw5h"]
+bg_color = Color(0, 0.273376, 4.81308e-08, 1)
 
 [node name="Start" type="Node2D"]
 script = ExtResource("1_3bxa3")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 396.0
-offset_top = 234.0
-offset_right = 780.0
-offset_bottom = 313.0
-text = "Start"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 220.0
-offset_top = 88.0
-offset_right = 1378.0
-offset_bottom = 273.0
-text = "The House Always Wins"
-label_settings = SubResource("LabelSettings_r48yj")
+offset_left = 346.0
+offset_top = 246.0
+offset_right = 853.0
+offset_bottom = 434.0
+theme = ExtResource("2_vjeat")
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 396.0
-offset_top = 326.0
-offset_right = 780.0
-offset_bottom = 405.0
-text = "Settings"
+z_index = -1
+offset_left = 425.0
+offset_top = 442.0
+offset_right = 759.0
+offset_bottom = 578.0
+theme = ExtResource("2_vjeat")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(565, 159)
+texture = ExtResource("2_fmb5s")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -10
+offset_left = -249.0
+offset_top = -94.0
+offset_right = 1716.0
+offset_bottom = 964.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qfw5h")
+
+[node name="StartAva" type="Sprite2D" parent="."]
+position = Vector2(594, 352)
+scale = Vector2(1.07262, 1.13264)
+texture = ExtResource("5_1n5gw")
+
+[node name="YouLose" type="Sprite2D" parent="."]
+position = Vector2(581, 541)
+scale = Vector2(0.49875, 0.49875)
+texture = ExtResource("6_4bqmm")
 
 [connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

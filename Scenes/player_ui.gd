@@ -6,7 +6,7 @@ var Lvl = Stats.stats["Lvl"]
 
 
 @onready var money = $Control/Chips/Chips
-@onready var health = $Control/Health/HP
+@onready var health = $HP
 @onready var level = $Control/Label
 
 func _process(delta: float) -> void:

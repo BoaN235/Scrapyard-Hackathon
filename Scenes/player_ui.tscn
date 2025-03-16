@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://sjqm5g7ludvx"]
+[gd_scene load_steps=14 format=3 uid="uid://sjqm5g7ludvx"]
 
-[ext_resource type="Script" uid="uid://bspipnxaxd4r4" path="res://Scenes/player_ui.gd" id="1_dxtgh"]
+[ext_resource type="Script" path="res://Scenes/player_ui.gd" id="1_dxtgh"]
 [ext_resource type="Texture2D" uid="uid://ddbqfu17xkcso" path="res://Assets/Chips/100dc.png" id="1_ohrjl"]
+[ext_resource type="Theme" uid="uid://75wybxm0x0en" path="res://Scenes/MainTheme.tres" id="2_221c7"]
+[ext_resource type="Texture2D" uid="uid://dvakn5jtddh74" path="res://Assets/framepos2.png" id="2_xdpy7"]
 [ext_resource type="Texture2D" uid="uid://b72hxjjtl3lh3" path="res://Assets/Hand/fingers.png" id="3_jbpjp"]
 [ext_resource type="Texture2D" uid="uid://ev11qpu8jkpu" path="res://Assets/Hand/palm.png" id="4_uflt7"]
 [ext_resource type="Texture2D" uid="uid://bpky3ntgdighv" path="res://Assets/Hand/palm - Copy.png" id="5_6jssq"]
@@ -15,6 +17,9 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.458824, 0.294118, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ohrjl"]
+font_size = 44
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qipxh"]
 bg_color = Color(0, 0.223529, 0, 1)
 border_width_left = 3
@@ -26,9 +31,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_ohrjl"]
-font_size = 44
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohrjl"]
 bg_color = Color(0.219501, 0.219501, 0.219501, 0.615686)
@@ -77,7 +79,23 @@ offset_right = 1189.0
 offset_bottom = 93.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dxtgh")
 
+[node name="HP" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -560.0
+offset_right = 203.0
+offset_bottom = -488.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_ohrjl")
+
+[node name="Framepos2" type="Sprite2D" parent="Control/HP"]
+z_index = -1
+position = Vector2(104, -32.0001)
+rotation = -3.13966
+texture = ExtResource("2_xdpy7")
+
 [node name="Health" type="Panel" parent="Control"]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -13.0
@@ -85,15 +103,6 @@ offset_top = 7.0
 offset_right = 228.0
 offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qipxh")
-
-[node name="HP" type="Label" parent="Control/Health"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 2.0
-offset_right = 215.0
-offset_bottom = 74.0
-text = "100/100"
-label_settings = SubResource("LabelSettings_ohrjl")
 
 [node name="Chips" type="Panel" parent="Control"]
 z_index = -2
@@ -211,6 +220,7 @@ offset_bottom = 93.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dxtgh")
 
 [node name="Health" type="Panel" parent="Control/Control"]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -13.0
@@ -218,15 +228,6 @@ offset_top = 7.0
 offset_right = 228.0
 offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qipxh")
-
-[node name="HP" type="Label" parent="Control/Control/Health"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 2.0
-offset_right = 215.0
-offset_bottom = 74.0
-text = "100/100"
-label_settings = SubResource("LabelSettings_ohrjl")
 
 [node name="Chips" type="Panel" parent="Control/Control"]
 z_index = -2
@@ -320,3 +321,19 @@ z_index = -2
 position = Vector2(992.939, 645.939)
 scale = Vector2(4.05959, 4.05959)
 texture = ExtResource("6_3nrpj")
+
+[node name="HP" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 50.0
+offset_top = 575.0
+offset_right = 229.0
+offset_bottom = 647.0
+theme = ExtResource("2_221c7")
+text = "100/100"
+label_settings = SubResource("LabelSettings_ohrjl")
+
+[node name="Framepos2" type="Sprite2D" parent="HP"]
+z_index = -1
+position = Vector2(75, 105)
+texture = ExtResource("2_xdpy7")

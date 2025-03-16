@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3gp7iwjxtgk1"]
+[gd_scene load_steps=3 format=3 uid="uid://b3gp7iwjxtgk1"]
 
-[ext_resource type="Script" uid="uid://cg0ufu1b0kv3s" path="res://Scripts/run.gd" id="1_cbofe"]
+[ext_resource type="Script" path="res://Scripts/run.gd" id="1_cbofe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmw4g"]
+bg_color = Color(0, 0.273376, 4.81308e-08, 1)
 
 [node name="Run" type="Node2D"]
 script = ExtResource("1_cbofe")
@@ -15,3 +18,12 @@ offset_bottom = 120.0
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(912, -4)
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -10
+offset_left = -249.0
+offset_top = -94.0
+offset_right = 1716.0
+offset_bottom = 964.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tmw4g")

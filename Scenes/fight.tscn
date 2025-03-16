@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://du6abaix38n46"]
 
-[ext_resource type="Script" uid="uid://3bwrmhn6cxhg" path="res://Scripts/fight.gd" id="1_bq00v"]
+[ext_resource type="Script" path="res://Scripts/fight.gd" id="1_bq00v"]
 [ext_resource type="PackedScene" uid="uid://dmag57m4lnpxj" path="res://Scenes/player.tscn" id="2_l8cav"]
 [ext_resource type="PackedScene" uid="uid://sjqm5g7ludvx" path="res://Scenes/player_ui.tscn" id="4_vvs45"]
 

@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="The house always wins"
-run/main_scene="uid://b821ilosk5ywq"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="res://Scenes/start.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
@@ -22,3 +22,4 @@ Stats="*res://stats.gd"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
