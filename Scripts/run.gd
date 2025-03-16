@@ -7,14 +7,25 @@ class Room:
 	var connections = []
 	var position = Vector2.ZERO
 	var size = Vector2(100, 100)  # Default room size
+	var button = Button.new()
+	var parent_node
+
+	func _init(parent):
+		parent_node = parent
 
 	func set_position(new_position: Vector2):
 		position = new_position
 		sprite.position = position
+		button.position = position
 
 	func set_size(new_size: Vector2):
 		size = new_size
 		sprite.scale = new_size / sprite.texture.get_size()
+		button.scale = new_size / sprite.texture.get_size()
+
+	func on_button_pressed():
+		print("e")
+		parent_node.get_tree().change_scene_to_file("res://Scenes/fight.tscn")
 
 func _ready():
 	var rng = RandomNumberGenerator.new()
@@ -29,7 +40,7 @@ func _ready():
 	
 	# Generate rooms with position and size
 	for i in range(room_count):
-		var room = Room.new()
+		var room = Room.new(self)
 		var xlocation = rng.randf_range(200.0, 900.0)
 		var ylocation = rng.randf_range(100.0, 500.0)
 	
@@ -51,8 +62,16 @@ func _ready():
 		new_sprite.position = Vector2(xlocation, ylocation)
 		add_child(new_sprite)
 	
+		# Create button for the room
+		var new_button = Button.new()
+		new_button.size = Vector2(25,25)
+		new_button.position = Vector2(xlocation, ylocation)
+		add_child(new_button)
+		new_button.connect("pressed", Callable(room, "on_button_pressed"))
+	
 		# Set random size for the room
 		room.sprite = new_sprite
+		room.button = new_button
 		room.set_position(Vector2(xlocation, ylocation))
 	
 		rooms.append(room)
@@ -73,3 +92,5 @@ func _ready():
 		if len(room.connections) == 0:
 			remove_child(room.sprite)
 			room.sprite.queue_free()
+			remove_child(room.button)
+			room.button.queue_free()

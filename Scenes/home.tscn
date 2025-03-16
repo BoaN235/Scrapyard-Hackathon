@@ -27,6 +27,7 @@ offset_right = 879.0
 offset_bottom = 464.0
 
 [node name="Button5" type="Button" parent="StartRunUI/Dificulty"]
+layout_mode = 0
 offset_left = 89.0
 offset_top = 52.0
 offset_right = 307.0
@@ -34,6 +35,7 @@ offset_bottom = 124.0
 text = "Easy"
 
 [node name="Button4" type="Button" parent="StartRunUI/Dificulty"]
+layout_mode = 0
 offset_left = 90.0
 offset_top = 152.0
 offset_right = 308.0
@@ -61,6 +63,7 @@ mouse_filter = 2
 color = Color(0.564962, 0.564962, 0.564962, 0.286275)
 
 [node name="Button5" type="Button" parent="StartRunUI"]
+layout_mode = 0
 offset_left = 571.0
 offset_top = 395.0
 offset_right = 789.0
