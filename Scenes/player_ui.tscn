@@ -1,0 +1,186 @@
+[gd_scene load_steps=8 format=3 uid="uid://sjqm5g7ludvx"]
+
+[ext_resource type="Script" uid="uid://bspipnxaxd4r4" path="res://Scenes/player_ui.gd" id="1_dxtgh"]
+[ext_resource type="Texture2D" uid="uid://ddbqfu17xkcso" path="res://Assets/Chips/100dc.png" id="1_ohrjl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxtgh"]
+bg_color = Color(0, 0.223529, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.458824, 0.294118, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qipxh"]
+bg_color = Color(0, 0.223529, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.457984, 0.293801, 3.85046e-07, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ohrjl"]
+font_size = 44
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohrjl"]
+bg_color = Color(0.219501, 0.219501, 0.219501, 0.615686)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.458824, 0.294118, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46yqn"]
+bg_color = Color(0, 0.614952, 0.604691, 1)
+border_width_left = 3
+border_width_top = 3
+border_color = Color(0.458824, 0.294118, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxtgh")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 27.0
+offset_top = 566.0
+offset_right = 67.0
+offset_bottom = 606.0
+
+[node name="UIbackground" type="Panel" parent="Control"]
+z_index = -2
+layout_mode = 0
+offset_left = -31.0
+offset_top = -2.0
+offset_right = 1189.0
+offset_bottom = 93.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dxtgh")
+
+[node name="Health" type="Panel" parent="Control"]
+z_index = 1
+offset_left = -13.0
+offset_top = 7.0
+offset_right = 228.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qipxh")
+
+[node name="HP" type="Label" parent="Control/Health"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 2.0
+offset_right = 215.0
+offset_bottom = 74.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_ohrjl")
+
+[node name="Chips" type="Panel" parent="Control"]
+z_index = -2
+offset_left = 244.0
+offset_top = 7.0
+offset_right = 311.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qipxh")
+
+[node name="100Dc7" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(20, 42)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc8" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(20, 38)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc9" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(20, 34)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc2" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(37, 36)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(37, 32)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc3" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(37, 28)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc4" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(37, 24)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc5" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(37, 20)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc6" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(37, 16)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc10" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(45, 44)
+texture = ExtResource("1_ohrjl")
+
+[node name="100Dc11" type="Sprite2D" parent="Control/Chips"]
+position = Vector2(45, 40)
+texture = ExtResource("1_ohrjl")
+
+[node name="Chips" type="Label" parent="Control/Chips"]
+offset_left = 26.0
+offset_top = 48.0
+offset_right = 73.0
+offset_bottom = 71.0
+text = "0"
+
+[node name="Relics" type="Panel" parent="Control"]
+z_index = 1
+offset_left = 331.0
+offset_top = 37.0
+offset_right = 1109.0
+offset_bottom = 81.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qipxh")
+
+[node name="Relics" type="Panel" parent="Control/Relics"]
+z_index = 1
+offset_left = 314.0
+offset_top = -6.0
+offset_right = 458.0
+offset_bottom = 23.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qipxh")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 23.0
+offset_right = 1107.0
+offset_bottom = 50.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ohrjl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_46yqn")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 688.0
+offset_top = 31.0
+offset_right = 746.0
+offset_bottom = 54.0
+text = "Level: 1"

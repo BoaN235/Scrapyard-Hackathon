@@ -1,19 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmag57m4lnpxj"]
+[gd_scene load_steps=2 format=3 uid="uid://dmag57m4lnpxj"]
 
 [ext_resource type="Script" uid="uid://dq6ya7d4kc3va" path="res://Scenes/player.gd" id="1_cvnsp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0iea"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_cvnsp"]
-font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_6t5aa"]
-font_size = 30
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_cvnsp")
@@ -31,27 +18,3 @@ offset_left = -194.0
 offset_top = -22.0
 offset_right = -194.0
 offset_bottom = -22.0
-
-[node name="player" type="Panel" parent="."]
-offset_left = 2.0
-offset_top = 4.0
-offset_right = 102.0
-offset_bottom = 108.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_v0iea")
-
-[node name="PlayerName" type="Label" parent="player"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = -1.0
-offset_right = 261.0
-offset_bottom = 54.0
-text = "You"
-label_settings = SubResource("LabelSettings_cvnsp")
-
-[node name="HP" type="Label" parent="player/PlayerName"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 60.0
-offset_right = 261.0
-offset_bottom = 115.0
-label_settings = SubResource("LabelSettings_6t5aa")
