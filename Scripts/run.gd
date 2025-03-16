@@ -9,6 +9,8 @@ class Room:
 	var size = Vector2(100, 100)  # Default room size
 	var button = Button.new()
 	var parent_node
+	var rand = RandomNumberGenerator.new()
+	var type = rand.randf_range(0.0, 100.0)
 
 	func _init(parent):
 		parent_node = parent
@@ -24,7 +26,6 @@ class Room:
 		button.scale = new_size / sprite.texture.get_size()
 
 	func on_button_pressed():
-		print("e")
 		parent_node.get_tree().change_scene_to_file("res://Scenes/fight.tscn")
 
 func _ready():
@@ -65,7 +66,7 @@ func _ready():
 		# Create button for the room
 		var new_button = Button.new()
 		new_button.size = Vector2(25,25)
-		new_button.position = Vector2(xlocation, ylocation)
+		new_button.position = Vector2(xlocation, ylocation) + Vector2(200,200)
 		add_child(new_button)
 		new_button.connect("pressed", Callable(room, "on_button_pressed"))
 	
